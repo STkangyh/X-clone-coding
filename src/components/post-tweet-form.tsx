@@ -65,7 +65,11 @@ export default function PostTweetForm() {
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e?.target;
     if (files && files.length === 1) {
-      setFile(files[0]);
+      if (files[0].size < 1*1024*1024) {
+        setFile(files[0]);
+      } else {
+        alert("The size of the file is too heavy")
+      }
     }
   };
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -80,7 +84,7 @@ export default function PostTweetForm() {
         username: user.displayName || "Anonymous",
         userId: user.uid,
       });
-      if (file) {
+      if (file && file.size < 1*1024*1024) {
         const locationRef = ref(
           storage,
           `tweets/${user.uid}-${user.displayName}/${doc.id}`
