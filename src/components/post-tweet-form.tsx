@@ -69,9 +69,11 @@ export default function PostTweetForm() {
   const [isLoading, setLoading] = useState(false)
   const [tweet, setTweet] = useState('')
   const [file, setFile] = useState<File | null>(null)
+
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTweet(e.target.value)
   }
+
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e?.target
     if (files && files.length === 1) {
@@ -82,6 +84,7 @@ export default function PostTweetForm() {
       }
     }
   }
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const user = auth.currentUser
@@ -110,6 +113,7 @@ export default function PostTweetForm() {
       setLoading(false)
     }
   }
+
   return (
     <Form onSubmit={onSubmit}>
       <TextArea
