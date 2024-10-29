@@ -171,7 +171,7 @@ export default function EditModal({
   }
   const onDelete = async () => {
     const ok = confirm('Are you sure you want to delete this tweet?')
-    if (!ok) return
+    if (!ok || !user) return
     try {
       if (photo) {
         await updateDoc(doc(db, 'tweets', id), {
