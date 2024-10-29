@@ -5,6 +5,7 @@ import { deleteDoc, doc } from 'firebase/firestore'
 import { deleteObject, ref } from 'firebase/storage'
 import { useState } from 'react'
 import EditModal from './edit-modal'
+import { useNavigate } from 'react-router-dom'
 
 const Wrapper = styled.div`
   display: grid;
@@ -55,6 +56,7 @@ const EditButton = styled.button`
 export default function Tweet({ username, photo, tweet, userId, id }: ITweet) {
   const user = auth.currentUser
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const navigate = useNavigate()
 
   const openModal = () => setIsModalOpen(true)
   const closeModal = () => setIsModalOpen(false)
@@ -68,6 +70,7 @@ export default function Tweet({ username, photo, tweet, userId, id }: ITweet) {
         const photoRef = ref(storage, `tweets/${user.uid}/${id}`)
         await deleteObject(photoRef)
       }
+      navigate(0)
     } catch (e) {
       console.log(e)
     }

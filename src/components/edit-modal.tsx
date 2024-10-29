@@ -8,6 +8,7 @@ import {
   ref,
   uploadBytes,
 } from 'firebase/storage'
+import { useNavigate } from 'react-router-dom'
 
 interface WrapperProps {
   isOpen: boolean
@@ -153,6 +154,7 @@ export default function EditModal({
   const [newFile, setNewFile] = useState<File | null>(null)
   const [newTweet, setNewTweet] = useState(tweet)
   const [newPhoto, setNewPhoto] = useState(photo)
+  const navigate = useNavigate()
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewTweet(e.target.value)
@@ -214,6 +216,7 @@ export default function EditModal({
       setNewTweet('')
       setNewFile(null)
       setLoading(false)
+      navigate(0)
       onClose()
     } catch (e) {
       console.log(e)
