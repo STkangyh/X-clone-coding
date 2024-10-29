@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useState } from 'react'
 import { auth, db, storage } from '../firebase'
-import { deleteDoc, doc, updateDoc } from 'firebase/firestore'
+import { doc, updateDoc } from 'firebase/firestore'
 import {
   deleteObject,
   getDownloadURL,

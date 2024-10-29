@@ -2,16 +2,13 @@ import styled from 'styled-components'
 import { auth, db, storage } from '../firebase'
 import { useEffect, useState } from 'react'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
-import { updateCurrentUser, updateProfile } from 'firebase/auth'
+import { updateProfile } from 'firebase/auth'
 import {
   collection,
-  doc,
   getDocs,
   limit,
-  onSnapshot,
   orderBy,
   query,
-  updateDoc,
   where,
 } from 'firebase/firestore'
 import { ITweet } from '../components/timeline'
