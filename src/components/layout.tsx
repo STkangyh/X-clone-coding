@@ -1,6 +1,6 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import { auth } from "../firebase";
+import { Link, Outlet, useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
+import { auth } from '../../types/firebase'
 
 const Wrapper = styled.div`
   display: grid;
@@ -10,14 +10,14 @@ const Wrapper = styled.div`
   padding: 50px 0px;
   width: 100%;
   max-width: 860px;
-`;
+`
 
 const Menu = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-`;
+`
 
 const MenuItem = styled.div`
   cursor: pointer;
@@ -38,17 +38,17 @@ const MenuItem = styled.div`
       fill: tomato;
     }
   }
-`;
+`
 
 export default function Layout() {
-  const navigation = useNavigate();
+  const navigation = useNavigate()
   const onLogOut = async () => {
-    const ok = confirm("Are you sure you want to log out?");
+    const ok = confirm('Are you sure you want to log out?')
     if (ok) {
-      await auth.signOut();
-      navigation("/login");
+      await auth.signOut()
+      navigation('/login')
     }
-  };
+  }
   return (
     <Wrapper>
       <Menu>
@@ -105,5 +105,5 @@ export default function Layout() {
       </Menu>
       <Outlet />
     </Wrapper>
-  );
+  )
 }

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { useState } from 'react'
-import { auth, db, storage } from '../firebase'
+import { auth, db, storage } from '../../types/firebase'
 import { doc, updateDoc } from 'firebase/firestore'
 import {
   deleteObject,
