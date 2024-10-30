@@ -8,7 +8,7 @@ import {
 } from '../components/auth-components'
 import { FirebaseError } from 'firebase/app'
 import { sendPasswordResetEmail } from 'firebase/auth'
-import { auth } from '../firebase'
+import { auth } from '../../types/firebase'
 import { Link } from 'react-router-dom'
 
 export default function ResetPassword() {

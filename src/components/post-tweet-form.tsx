@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { auth, db, storage } from '../firebase'
+import { auth, db, storage } from '../../types/firebase'
 import { addDoc, collection, updateDoc } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 
